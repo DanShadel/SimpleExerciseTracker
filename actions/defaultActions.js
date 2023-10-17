@@ -1,4 +1,4 @@
-import * as types from '../constants/actionTypes';
+import * as types from './actionTypes';
 
 export const setSomethingAction = (data) => {
     return {
@@ -6,3 +6,9 @@ export const setSomethingAction = (data) => {
         data
     };
 };
+
+export const getDBAction = () => {
+    return {
+        type: types.GET_DB,
+    }
+}

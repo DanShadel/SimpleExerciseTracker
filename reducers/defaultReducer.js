@@ -1,9 +1,9 @@
-import * as types from '../constants/actionTypes';
-const INITIAL_STATE = {};
+import * as types from '../actions/actionTypes';
+const INITIAL_STATE = { db: null, timerLength: 120 };
 
 const defaultReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case types.SET_SOMETHING:
+        // case types.SET_DB:
         default:
             return state;
     }
