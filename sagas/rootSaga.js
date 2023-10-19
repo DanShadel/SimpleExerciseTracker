@@ -1,5 +1,7 @@
+import { fork } from "redux-saga/effects";
+import { initDB, watchGetDB } from './dbSagas';
+
 export default function* rootSaga() {
-    //yield fork(saga1)
-    //yield fork(saga2)
-    //yield fork(saga3)
+    // yield fork(initDB)
+    // yield fork(watchGetDBr)
 }
