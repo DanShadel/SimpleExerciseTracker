@@ -1,5 +1,5 @@
 import * as types from '../actions/actionTypes';
-const INITIAL_STATE = { db: null, timerLength: 120 };
+const INITIAL_STATE = { timerLength: 120 };
 
 const defaultReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {

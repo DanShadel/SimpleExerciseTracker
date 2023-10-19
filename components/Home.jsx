@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import TitleButton from './TitleButton';
+import { StyleSheet, Text, View, Platform } from 'react-native';
+import { useEffect } from 'react';
 
 const Home = ({ navigation }) => {
+
 	return (
 		<>
 			<View style={styles.titleContainer}>
