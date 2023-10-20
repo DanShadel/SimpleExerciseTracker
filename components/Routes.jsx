@@ -1,10 +1,12 @@
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import Home from './Home';
+import Exercises from './Exercises';
+import Timer from './Timer';
+import Workout from './Workout';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const Routes = () => {
 	const dispatch = useDispatch();
@@ -15,9 +17,11 @@ const Routes = () => {
 
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
-				<Stack.Screen name="Home" component={Home} />
-			</Stack.Navigator>
+			<Tab.Navigator initialRouteName="Workout" screenOptions={{ headerShown: false }}>
+				<Tab.Screen name="Exercises" component={Exercises} />
+				<Tab.Screen name="Workout" component={Workout} />
+				<Tab.Screen name="Timer" component={Timer} />
+			</Tab.Navigator>
 		</NavigationContainer>
 	);
 };

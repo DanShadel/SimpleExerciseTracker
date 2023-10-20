@@ -6,12 +6,12 @@ import { Asset } from 'expo-asset';
 
 const databaseFile = 'database.db';
 
-let db = SQLite.openDatabase('database.db');
-db.transaction(tx => {
-    tx.executeSql(
-        'CREATE TABLE IF NOT EXISTS Names (id integer primary key not null, name)'
-    );
-}, (err) => console.log(err), (cb) => console.log(cb));
+// let db = SQLite.openDatabase('database.db');
+// db.transaction(tx => {
+//     tx.executeSql(
+//         'CREATE TABLE IF NOT EXISTS Names (id integer primary key not null, name)'
+//     );
+// }, (err) => console.log(err), (cb) => console.log(cb));
 
 
 async function openDatabase() {
