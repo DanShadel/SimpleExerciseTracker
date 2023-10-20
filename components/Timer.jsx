@@ -23,10 +23,11 @@ const Timer = () => {
                 dispatch(toggleTimerAction(!on))
             }} />
             <View style={styles.controls}>
-                <SmallButton title={'-15'} onPress={() => {
-                    dispatch(setTimerAction(timeLeft - 15))
-                    dispatch(setTimerLengthAction(timerLength - 15))
-                }}
+                <SmallButton title={'-15'} onPress={
+                    timeLeft > 0 ? () => {
+                        dispatch(setTimerAction(timeLeft - 15))
+                        dispatch(setTimerLengthAction(timerLength - 15))
+                    } : () => { }}
                 />
                 <ResetButton onPress={() => {
                     dispatch(toggleTimerAction(false))
@@ -36,7 +37,8 @@ const Timer = () => {
                     dispatch(setTimerAction(timeLeft + 15))
                     dispatch(setTimerLengthAction(timerLength + 15))
 
-                }} />
+                }
+                } />
             </View>
         </View >
     );
@@ -61,8 +63,11 @@ const styles = StyleSheet.create({
     timerContainer: {
         flex: 3,
         justifyContent: 'center',
-        alignItems: 'center',
         textAlign: 'center',
+        width: '68%',
+        paddingLeft: 0,
+        // border: 2,
+        // borderWidth: 2,
         marginTop: 64
     },
     timerText: {

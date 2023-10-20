@@ -16,7 +16,7 @@ export function* toggleTimer(action) {
     let timer = yield select(selectors.getTimer)
     console.log('timer:' + timer)
     if (action.timerOn) {
-        while (timer > 0) {
+        while (timer > 1) {
             yield delay(1000)
             timer = yield select(selectors.getTimer)
             yield put(setTimerAction(timer - 1))
