@@ -1,8 +1,7 @@
 import * as types from '../actions/actionTypes';
-import { PAGES } from '../helpers/helpers';
-const INITIAL_STATE = { timerLength: 120, timer: 120, timerOn: false, page: PAGES.CYCLES };
+const INITIAL_STATE = { timerLength: 120, timer: 120, timerOn: false };
 
-const defaultReducer = (state = INITIAL_STATE, action) => {
+const timerReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case types.TOGGLE_TIMER:
             return { ...state, timerOn: action.timerOn }
@@ -15,4 +14,4 @@ const defaultReducer = (state = INITIAL_STATE, action) => {
     }
 };
 
-export default defaultReducer;
+export default timerReducer;

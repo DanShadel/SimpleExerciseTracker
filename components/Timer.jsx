@@ -66,8 +66,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         width: '68%',
         paddingLeft: 0,
-        // border: 2,
-        // borderWidth: 2,
         marginTop: 64
     },
     timerText: {

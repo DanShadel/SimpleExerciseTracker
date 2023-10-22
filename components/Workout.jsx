@@ -1,25 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { PAGES } from '../helpers/helpers';
-import { getPage } from '../helpers/selectors';
+import { getPage, getSets } from '../helpers/selectors';
 import Cycles from './Cycles';
+import Sets from './Sets';
 
 const Workout = () => {
-    const dispatch = useDispatch();
-    const page = useSelector(getPage);
+    const sets = useSelector(getSets);
 
-    const handleCurrentPage = (page) => {
-        console.log(page);
-        switch (page) {
-            case PAGES.CYCLES:
-                return <Cycles />
-            default:
-                return <Cycles />
-        }
-    }
-
-    return handleCurrentPage(page);
+    return (
+        <View style={styles.container}>
+            <Sets sets={sets.primary} startsCollapsed={false} title={sets.primary[0].name} />
+            <Sets sets={sets.secondary} title={sets.secondary[0].name} startsCollapsed={false} />
+            <Sets sets={sets.accessories} title={'Accessories'} startsCollapsed={true} />
+        </View >
+    )
 };
 
 
@@ -28,8 +24,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        marginTop: 48
     },
 });
 
