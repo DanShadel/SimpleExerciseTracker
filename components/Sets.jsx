@@ -1,48 +1,30 @@
-import React, { Component, useEffect } from 'react';
-import { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Collapsible from 'react-native-collapsible';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Line from './Line';
 import SetRow from './SetRow';
-import Play from '../assets/play.svg';
 
-const Sets = ({ sets, startsCollapsed, title }) => {
-
-    const [collapsed, setCollapsed] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => setCollapsed(startsCollapsed), 250)
-    }, [])
+const Sets = ({ sets, title, setType }) => {
 
     return (
         <View style={styles.container}>
             <View style={{ ...styles.title }}>
                 <View style={styles.titleRow}>
                     <Text style={styles.titleText}> {title}</Text>
-
-                    <View style={styles.buttonBox}>
-                        <TouchableOpacity style={collapsed ? styles.collapsed : styles.dropdown} onPress={() => setCollapsed(!collapsed)}>
-                            <Play height={'16'} width={'16'} />
-                        </TouchableOpacity>
-                    </View>
                 </View>
                 <Line type={'heavy'} />
             </View>
             <View style={styles.collapisbleContainer} >
-
-                <Collapsible align={'bottom'} collapsed={collapsed}>
-                    {mapSets(sets)}
-                </Collapsible>
+                {mapSets(sets, setType)}
             </View>
         </View>
     );
 };
 
 
-const mapSets = (sets) => {
+const mapSets = (sets, setType) => {
     return (
-        <View >
-            {sets.map((set, index) => <SetRow key={index} set={set} index={index + 1} />)}
+        <View style={styles.setRow} >
+            {sets.map((set, index) => <SetRow key={index} set={set} index={index} setType={setType} showLine={index != sets.length - 1} />)}
         </View >
     );
 }
@@ -53,9 +35,9 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         flex: 1,
         marginLeft: 16,
+        marginBottom: 8
     },
     title: {
-        flex: .5,
         alignItems: 'stretch',
         alignSelf: 'stretch',
     },
@@ -93,8 +75,12 @@ const styles = StyleSheet.create({
     },
 
     collapisbleContainer: {
-        flex: 1
-
+        flex: 1,
+        flexDirection: 'row',
+    },
+    setRow: {
+        flex: 1,
+        // borderWidth: 2,
     }
 });
 

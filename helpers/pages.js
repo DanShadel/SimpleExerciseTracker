@@ -2,5 +2,7 @@ export const PAGES = {
     CYCLES: 'CYCLES',
     DAY: 'DAY',
     NEWTEMPLATE: 'NEWTEMPLATE',
-    WORKOUT: 'WORKOUT'
+    WORKOUT: 'WORKOUT',
+    WEEK: 'WEEK',
+    ACCESSORIES: 'ACCESSORIES'
 }
