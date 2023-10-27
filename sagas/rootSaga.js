@@ -1,7 +1,9 @@
 import { fork } from "redux-saga/effects";
-import { initDB, watchGetDB } from './dbSagas';
+import { watchToggleTimer } from "./timerSagas";
 
 export default function* rootSaga() {
     // yield fork(initDB)
     // yield fork(watchGetDBr)
+    yield fork(watchToggleTimer)
+
 }

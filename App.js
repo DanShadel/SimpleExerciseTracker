@@ -9,6 +9,6 @@ export default App = () => {
 	return (
 		<Provider store={store}>
 			<Routes />
-		</Provider>
+		</Provider >
 	);
 };

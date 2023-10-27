@@ -1,0 +1,8 @@
+export const PAGES = {
+    CYCLES: 'CYCLES',
+    DAY: 'DAY',
+    NEWTEMPLATE: 'NEWTEMPLATE',
+    WORKOUT: 'WORKOUT',
+    WEEK: 'WEEK',
+    ACCESSORIES: 'ACCESSORIES'
+}
